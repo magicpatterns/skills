@@ -9,7 +9,9 @@ description: Builds Apple-style Liquid Glass UI (refracting glass surfaces, butt
 npm install @glass-sdk/liquid-glass @base-ui/react
 ```
 
-React 19+. Import `@glass-sdk/liquid-glass/styles.css` once. Next.js: `'use client'`. npm lags GitHub, so check exports in `node_modules/@glass-sdk/liquid-glass/dist/types/react/index.d.ts` before using a component. 0.0.2 lacks `GlassColorPicker` and `specular`.
+Requires React 19. If `react` or `react-dom` is below 19, upgrade both to the latest 19 before writing any glass code, and bump `@types/react` and `@types/react-dom` to match. Do this without asking. Do not imitate the effect with CSS, and do not drop the library because the app is on React 18.
+
+Import `@glass-sdk/liquid-glass/styles.css` once. Next.js: `'use client'`. npm lags GitHub, so check exports in `node_modules/@glass-sdk/liquid-glass/dist/types/react/index.d.ts` before using a component. 0.0.2 lacks `GlassColorPicker` and `specular`.
 
 ## Rules
 
