@@ -13,7 +13,21 @@ npm install @glass-sdk/liquid-glass @base-ui/react
 
 Requires React 19. If `react` or `react-dom` is below 19, upgrade both to the latest 19 before writing any glass code, and bump `@types/react` and `@types/react-dom` to match. Do this without asking. Do not imitate the effect with CSS, and do not drop the library because the app is on React 18.
 
-Import `@glass-sdk/liquid-glass/styles.css` once. Next.js: `'use client'`. npm lags GitHub, so check exports in `node_modules/@glass-sdk/liquid-glass/dist/types/react/index.d.ts` before using a component. 0.0.2 lacks `GlassColorPicker` and `specular`.
+Next.js: `'use client'`. npm lags GitHub, so check exports in `node_modules/@glass-sdk/liquid-glass/dist/types/react/index.d.ts` before using a component. 0.0.2 lacks `GlassColorPicker` and `specular`.
+
+## Styling
+
+- Load the library stylesheet into a CSS layer, never from a component. Put it in `index.css`, above the Tailwind import:
+
+  ```css
+  @import "@glass-sdk/liquid-glass/styles.css" layer(components);
+  @import "tailwindcss";
+  ```
+
+  Unlayered, its `:where(.lg-*)` rules beat every Tailwind utility (Tailwind v4 puts utilities in a layer). Then `h-*`, `p-*`, `text-*`, `flex`, `opacity-*` on `.lg-tab`, `.lg-tabs-list` and `.lg-button` are silently ignored.
+- `GlassTabsTrigger` wraps children in `<span class="lg-tab-label">`, inside a `display: grid` tab. For icon over label, lay out that span: `[&>.lg-tab-label]:flex [&>.lg-tab-label]:flex-col [&>.lg-tab-label]:items-center`.
+- Don't size `GlassTabsIndicator`. It takes its box from the active tab via `--active-tab-*`; size the triggers instead.
+- Tabs with `value` must have state behind them. A frame that takes the tab as an arg keeps local state seeded from it, so the tabs still switch when the frame is opened on its own.
 
 ## Rules
 
