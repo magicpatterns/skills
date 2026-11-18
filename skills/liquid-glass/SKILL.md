@@ -1,9 +1,11 @@
 ---
 name: liquid-glass
-description: Builds Apple-style Liquid Glass UI (refracting glass surfaces, buttons, toolbars, tabs, menus, sliders, switches, progressive blur) with the @glass-sdk/liquid-glass React library from github.com/Glass-HQ/liquid-glass. Use when the user mentions liquid glass, glass UI, glassmorphism with real refraction, Glass-HQ, or @glass-sdk/liquid-glass.
+description: Adds Liquid Glass to any native Apple layout (macOS, iOS, iPadOS, tvOS, visionOS, watchOS) with @glass-sdk/liquid-glass.
 ---
 
 # Liquid Glass
+
+Use this for any native Apple layout: macOS, iOS, iPadOS, tvOS, visionOS, watchOS.
 
 ```sh
 npm install @glass-sdk/liquid-glass @base-ui/react
