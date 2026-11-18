@@ -27,6 +27,7 @@ Next.js: `'use client'`. npm lags GitHub, so check exports in `node_modules/@gla
   Unlayered, its `:where(.lg-*)` rules beat every Tailwind utility (Tailwind v4 puts utilities in a layer). Then `h-*`, `p-*`, `text-*`, `flex`, `opacity-*` on `.lg-tab`, `.lg-tabs-list` and `.lg-button` are silently ignored.
 - `GlassTabsTrigger` wraps children in `<span class="lg-tab-label">`, inside a `display: grid` tab. For icon over label, lay out that span: `[&>.lg-tab-label]:flex [&>.lg-tab-label]:flex-col [&>.lg-tab-label]:items-center`.
 - Don't size `GlassTabsIndicator`. It takes its box from the active tab via `--active-tab-*`; size the triggers instead.
+- The selected tab is not blue. The indicator is the highlight. `.lg-tab` is `color: inherit`, and `[data-active]` only sets `opacity: 1`. Keep the icon and the label on the foreground (`--lg-foreground`) in both states. Do not tint the active tab with the iOS system blue.
 - Tabs with `value` must have state behind them. A frame that takes the tab as an arg keeps local state seeded from it, so the tabs still switch when the frame is opened on its own.
 
 ## Rules
