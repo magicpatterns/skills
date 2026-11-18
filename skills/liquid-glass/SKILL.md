@@ -36,7 +36,7 @@ Next.js: `'use client'`. npm lags GitHub, so check exports in `node_modules/@gla
 - One `GlassScene` per group, one `GlassContent` (the refracted photo/content). Controls are siblings of `GlassContent`, never children.
 - Scene needs an explicit height. Give `GlassContent` an opaque background. Clip on the scene.
 - `maxSurfaces` defaults to 16. Split into more scenes past that.
-- Shared props, set on the scene or a surface: `material` `"clear"`|`"regular"`, `appearance` `"light"`|`"dark"`, `radius` px|`"capsule"`|`"circle"`, `refraction` (px, default 60), `tint` six-digit hex or omit, `motion` `"full"`|`"reduced"`|`"none"`. Text color is `--lg-foreground`.
+- Shared props, set on the scene or a surface: `material` `"clear"`|`"regular"`, `appearance` `"light"`|`"dark"`, `radius` px|`"capsule"`|`"circle"`, `refraction` (px, default 60), `tint` (leave it off; only a six-digit hex the user asked for), `motion` `"full"`|`"reduced"`|`"none"`. Text color is `--lg-foreground`.
 - Needs WebGPU (HTTPS or localhost). Safari is unreliable. Glass only refracts its own `GlassContent`.
 
 ```tsx
